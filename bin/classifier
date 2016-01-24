@@ -35,7 +35,7 @@ doc_formats = ['.txt', '.pdf','.doc','.docx','.xls','.xlsv','.xlsx',
 
 markdown_formats = ['.md','.markdown']
 
-archive_formats = ['.rar','.zip','.7z','.tar.gz','.tar.bz2', '.tar']
+archive_formats = ['.rar','.zip','.7z','.tar.gz','.tar.bz2', '.tar', '.tar.gz']
 
 executable_formats = ['.exe','.dmg','.app']
 
