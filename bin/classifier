@@ -12,6 +12,8 @@ target_vid = directory+'/Videos' #Added videos
 target_img = directory+'/Pictures'
 target_zip = directory+'/Archives' #renamed to archives to associate other formats e.g(zip, 7z, rar)
 target_docs = directory+'/Documents' #renamed to documents
+target_exe = directory+'/Executables'
+target_markdown = directory+'/Markdown'
 
 #list of known formats here can be added
 """
@@ -31,8 +33,11 @@ video_formats = ['.flv','.ogv','.avi','.mp4','.mpg','.mpeg','.3gp']
 doc_formats = ['.txt', '.pdf','.doc','.docx','.xls','.xlsv','.xlsx',
                '.ppt','.pptx','.ppsx','.odp','.odt','.ods']
 
+markdown_formats = ['.md','.markdown']
+
 archive_formats = ['.rar','.zip','.7z','.tar.gz','.tar.bz2', '.tar']
 
+executable_formats = ['.exe','.dmg','.app']
 
 
 print("Scanning Files")
@@ -48,7 +53,11 @@ if(len(sys.argv)==1):
 		os.makedirs(target_zip)
 	if not os.path.exists(target_docs):
 		os.makedirs(target_docs)
-
+	if not os.path.exists(target_exe):
+		os.makedirs(target_exe)
+	if not os.path.exisits(target_markdown):
+		os.makedirs(target_markdown)
+		
 	for file in os.listdir(directory):
 		filename, file_ext = os.path.splitext(file)
 		file_ext = file_ext.lower()
@@ -62,6 +71,10 @@ if(len(sys.argv)==1):
 			moveto(file, target_zip)
 		elif file_ext in doc_formats:
 			moveto(file, target_docs)
+		elif file_ext in executable_formats:
+			moveto(file, target_exe)
+		elif file_ext in target_markdown:
+			moveto(file, target_markdown)
 	print("Done!")
 else:
 	formats = []
